@@ -25,7 +25,7 @@ public class MinCoins {
 	        for(int j = 0; j < 3; j++){
 	            if(i >= a[j] && dp[i - a[j]] + 1 < dp[i]){//主要还是卡在这一步
 	                dp[i] = dp[i- a[j] ] + 1;
-	                System.out.println("dp[" + i + "] = " + dp[i] );
+	                System.out.println("dp[" + i + "] = " + dp[i] + ", one " + a[j] + " + " + "dp[" + (i-a[j]) + "]");
 	            }
 	        }
 	    }
