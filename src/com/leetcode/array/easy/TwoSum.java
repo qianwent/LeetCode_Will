@@ -3,6 +3,11 @@ package com.leetcode.array.easy;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+ * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+ */
 public class TwoSum {
 
 	public static void main(String[] args) {
@@ -21,13 +26,20 @@ public class TwoSum {
 	    int[] result = new int[2];
 	    Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 	    for (int i = 0; i < numbers.length; i++) {
-	    	map.put(numbers[i], i);
+//	    	map.put(numbers[i], i);//can't put here, this is causing error
+	    	/*
+	    	 * for example:
+	    	 * [3,2,4]
+	    	 * 6
+	    	 * if map.put logic is at first, then 3 and index 0 will be put into map, and same element is used twice
+	    	 * which is contradictory with the requirement
+	    	 */
 	        if (map.containsKey(target - numbers[i])) {
 	            result[1] = i;
 	            result[0] = map.get(target - numbers[i]);
 	            return result;
 	        }
-//	        map.put(numbers[i], i);
+	        map.put(numbers[i], i);
 	    }
 	    return result;
 	}
