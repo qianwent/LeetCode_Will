@@ -1,4 +1,4 @@
-package com.leetcode.array;
+package com.leetcode.array.easy;
 
 /*
  * Given a non-negative integer represented as a non-empty array of digits, plus one to the integer.
