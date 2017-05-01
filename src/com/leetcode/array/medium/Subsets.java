@@ -22,14 +22,14 @@ import java.util.List;
 public class Subsets {
 
 	public static void main(String[] args) {
-		
+
 		Subsets cs = new Subsets();
 		int[] nums = {1,2,3};
 		List<List<Integer>> list = cs.subsets(nums);
 		System.out.println(list);
-		
+
 	}
-	
+
 	public List<List<Integer>> subsets(int[] nums) {
 	    List<List<Integer>> list = new ArrayList<>();
 	    Arrays.sort(nums);
