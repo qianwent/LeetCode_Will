@@ -15,4 +15,6 @@ target
 .metadata
 /bin/
 
+# ignore intellij files
 .idea
+*.iml
