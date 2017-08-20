@@ -34,6 +34,7 @@ public class TwoSum {
 	    	 * if map.put logic is at first, then 3 and index 0 will be put into map, and same element is used twice
 	    	 * which is contradictory with the requirement
 	    	 */
+	    	// 根据值来确定index，那么自然而然就会把array的value作为key， 把array的index作为value存入map中
 	        if (map.containsKey(target - numbers[i])) {
 	            result[1] = i;
 	            result[0] = map.get(target - numbers[i]);
