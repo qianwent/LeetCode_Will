@@ -34,6 +34,22 @@ public class LongestHarmoniousSubsequence {
         return res;
     }
 
+    public static int findLHS_single_loop(int[] nums) {
+        //single loop,核心思想和第一种方法是相同的
+        Map<Integer, Integer> map = new HashMap<>();
+        int res = 0;
+        for(int num: nums) {
+            map.put(num, map.getOrDefault(num, 0)+1);
+            if(map.containsKey(num+1)) {
+                res = Math.max(res, map.get(num)+map.get(num+1));
+            }
+            if(map.containsKey(num-1)) {
+                res = Math.max(res, map.get(num)+map.get(num-1));
+            }
+        }
+        return res;
+    }
+
     public static int findLHS2(int[] nums) {
         if(nums.length==0) return 0;
         Arrays.sort(nums);
@@ -45,6 +61,7 @@ public class LongestHarmoniousSubsequence {
             if(nums[i] == nums[i-1]) {
                 //仔细想想，这样的思路，坑越挖越多，必须摈弃
                 //而且发现这样排序之后，并没有有效地利用map
+                //能够看到if else多了之后，逻辑会越来越混乱，很难完美覆盖所有情况，平时项目中也是如此，需留意
                 map.put(nums[i], map.get(nums[i-1])+1);
                 if(pcount!=0) {
                     pcount++;
