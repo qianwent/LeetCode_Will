@@ -1,6 +1,8 @@
 package com.leetcode.hashtable.easy;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * You are given a data structure of employee information, which includes the employee's unique id, his importance value and his direct subordinates' id.
@@ -41,6 +43,24 @@ public class EmployeeImportance {
         return total;
     }
 
+    //在看一个DFS的递归算法
+    //TODO: 对DFS的理解还处于似懂非懂的阶段，递归比较好理解，但是说用到图算法，还是比较晦涩
+    public int getImportance_DFS(List<Employee> employees, int id) {
+        Map<Integer, Employee> map = new HashMap<>();
+        for(Employee employee: employees) {
+            map.put(employee.id, employee);
+        }
+        return getImportanceHelper(map, id);
+    }
 
+    //和第一种的递归思路是一致的，前面创建出来的map，是一个不变的表格，需要在递归中不断使用
+    public int getImportanceHelper(Map<Integer, Employee> map, int rootId) {
+        Employee rootEmployee = map.get(rootId);
+        int total = rootEmployee.importance;
+        for(int subordinate: rootEmployee.subordinates) {
+            total += getImportanceHelper(map, subordinate);
+        }
+        return total;
+    }
 
 }
