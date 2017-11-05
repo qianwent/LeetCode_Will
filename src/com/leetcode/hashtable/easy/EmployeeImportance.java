@@ -1,8 +1,6 @@
 package com.leetcode.hashtable.easy;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * You are given a data structure of employee information, which includes the employee's unique id, his importance value and his direct subordinates' id.
@@ -59,6 +57,28 @@ public class EmployeeImportance {
         int total = rootEmployee.importance;
         for(int subordinate: rootEmployee.subordinates) {
             total += getImportanceHelper(map, subordinate);
+        }
+        return total;
+    }
+
+    //第三种，BFS, Breadth First Search，目前看来这种算法是需要利用队列，先进先出
+    //由近及远，依次找出离当前节点（vertex）最近的所有节点，然后一层结束，再遍历新的一层
+    //对这种算法的一点粗浅的理解：首先得保证这个图的结构，即数据存储时的结构，就是一个树桩结构，
+    //而且子节点不能喝父节点重复，这是目前根据此题得出的结论 TODO
+    public int getImportance_BFS(List<Employee> employees, int id) {
+        int total = 0;
+        Map<Integer, Employee> map = new HashMap<>();
+        for(Employee employee: employees) {
+            map.put(employee.id, employee);
+        }
+        Queue<Employee> queue = new LinkedList<>();
+        queue.offer(map.get(id));
+        while (!queue.isEmpty()) {
+            Employee currentEmployee = queue.poll();
+            total += currentEmployee.importance;
+            for(int subordinate: currentEmployee.subordinates) {
+                total += map.get(subordinate).importance;
+            }
         }
         return total;
     }
