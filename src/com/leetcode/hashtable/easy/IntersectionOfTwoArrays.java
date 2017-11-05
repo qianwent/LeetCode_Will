@@ -66,6 +66,11 @@ public class IntersectionOfTwoArrays {
 //        return newSet.stream().mapToInt(i->i).toArray();
     }
 
+    /*
+    Set检索元素效率低下，删除和插入效率高；List查找元素效率高，插入删除元素效率低。
+    List虽然用get(index)方法查询效率高，但是若用contains方法查询对象元素，Set集合应该比List效率要高
+     */
+
     public static void main(String args[]) {
         //测试intersection方法里两种不同return方式的效率
         //结果太明显，用纯array的方法return，方法执行时间在0-16ms
