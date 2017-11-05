@@ -77,7 +77,9 @@ public class EmployeeImportance {
             Employee currentEmployee = queue.poll();
             total += currentEmployee.importance;
             for(int subordinate: currentEmployee.subordinates) {
-                total += map.get(subordinate).importance;
+                queue.offer(map.get(subordinate));
+                //以下逻辑就很明显是对queue的理解的缺失，queue里面的element都拿完了，不继续装载，怎么进行后续的while循环？
+//                total += map.get(subordinate).importance;
             }
         }
         return total;
