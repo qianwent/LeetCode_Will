@@ -18,3 +18,5 @@ target
 # ignore intellij files
 .idea
 *.iml
+
+.gradle/
