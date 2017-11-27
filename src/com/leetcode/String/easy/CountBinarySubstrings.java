@@ -35,7 +35,7 @@ public class CountBinarySubstrings {
     子集显然就是[2,3], [3,4], [4,6]
     每个子集中满足条件的substring个数就是小的那个数
      */
-    public static int countBinarySubstrings(String s) {
+    public static int countBinarySubstrings_v0(String s) {
         int[] arr = new int[s.length()];
         int count = 0;
         arr[count] = 1;
@@ -64,8 +64,27 @@ public class CountBinarySubstrings {
         return subStringCount;
     }
 
+    //这个版本简化了一些代码，如：++count
+    public int countBinarySubstrings_v1(String s) {
+        int[] arr = new int[s.length()];
+        int count = 0;
+        arr[count] = 1;
+        for(int i=1; i<s.length(); i++) {
+            if(s.charAt(i) == s.charAt(i-1)) {
+                arr[count]++;
+            } else {
+                arr[++count]++;
+            }
+        }
+        int subStringCount = 0;
+        for(int i=1; i<s.length(); i++) {
+            subStringCount += Math.min(arr[i-1], arr[i]);
+        }
+        return subStringCount;
+    }
+
     public static void main(String[] args) {
-        int count = countBinarySubstrings("00110");
+        int count = countBinarySubstrings_v0("00110");
         System.out.println(count);
     }
 
