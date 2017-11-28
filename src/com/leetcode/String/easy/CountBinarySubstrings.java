@@ -83,8 +83,41 @@ public class CountBinarySubstrings {
         return subStringCount;
     }
 
+    public static int countBinarySubstrings_v2_linear_scan_wrong(String s) {
+        int count=0, prev=1, curr=0;
+        for(int i=1; i<s.length(); i++) {
+            if(s.charAt(i) == s.charAt(i-1)) {
+                prev++;
+//                count += Math.min(++prev, curr);
+            } else {
+                count += Math.min(prev, ++curr);
+                prev = curr;
+                curr = 0;
+            }
+        }
+        return count;
+    }
+
+    public static int countBinarySubstrings_v2_linear_scan(String s) {
+        //这个算法一开始比较难以理解，但是一旦理解了，还是比较顺畅的
+        //比如这个string：000111000，数0的时候，是curr，当数到1的时候，先把000group，发现没有prev
+        //那自然没有count，再从1数，数到又是0的时候，这个时候111就有prev了，正是比较000111，显然需要做min运算
+        //最后，数完最后一个数，后面没法再进入else了，必须再做一次count += Math.min(prev, curr)运算
+        int count=0, prev=0, curr=1;
+        for(int i=1; i<s.length(); i++) {
+            if(s.charAt(i) == s.charAt(i-1)) {
+                curr++;
+            } else {
+                count += Math.min(prev, curr);
+                prev = curr;
+                curr = 1;
+            }
+        }
+        return count += Math.min(prev, curr);
+    }
+
     public static void main(String[] args) {
-        int count = countBinarySubstrings_v0("00110");
+        int count = countBinarySubstrings_v2_linear_scan("000111000");
         System.out.println(count);
     }
 
