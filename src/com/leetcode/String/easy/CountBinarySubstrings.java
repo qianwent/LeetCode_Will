@@ -99,6 +99,11 @@ public class CountBinarySubstrings {
     }
 
     public static int countBinarySubstrings_v2_linear_scan(String s) {
+        /*
+        TODO:linear scan这是第一次使用，有效减少space的算法
+        Time Complexity: O(N), where N is the length of s.
+        Space Complexity: O(1), the space used by prev, cur, and ans.
+         */
         //这个算法一开始比较难以理解，但是一旦理解了，还是比较顺畅的
         //比如这个string：000111000，数0的时候，是curr，当数到1的时候，先把000group，发现没有prev
         //那自然没有count，再从1数，数到又是0的时候，这个时候111就有prev了，正是比较000111，显然需要做min运算
