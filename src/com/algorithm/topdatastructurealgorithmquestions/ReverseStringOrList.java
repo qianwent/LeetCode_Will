@@ -54,12 +54,24 @@ public class ReverseStringOrList {
         return newList;
     }
 
+    public static String reverseString_v1(String s) {
+        StringBuffer sb = new StringBuffer();
+        for(int i=s.length()-1; i>=0; i--) {
+            sb.append(s.charAt(i));
+        }
+        return sb.toString();//和下面的效果一样
+//        return new String(sb);
+    }
+
     public static void main(String[] args) {
         Integer[] arr = {1,2,3,4,5};
         List<Integer> list = Arrays.asList(arr);
         System.out.println(list);
         System.out.println(reverseList_v1(list));
         System.out.println(reverseList_v2(list));
+
+        String s = "abcde";
+        System.out.println(reverseString_v1(s));
     }
 
 }
