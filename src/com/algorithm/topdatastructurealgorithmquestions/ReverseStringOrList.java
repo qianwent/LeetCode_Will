@@ -30,7 +30,7 @@ public class ReverseStringOrList {
         return list;
     }
 
-    public static  List<Integer> reverseList(List<Integer> list) {
+    public static  List<Integer> reverseList_v1(List<Integer> list) {
         //ÔÙ´ÎÊìÏ¤array to list
         Integer[] arr = new Integer[list.size()];
         arr = list.toArray(arr);
@@ -46,11 +46,20 @@ public class ReverseStringOrList {
         return Arrays.asList(arr);
     }
 
+    public static  List<Integer> reverseList_v2(List<Integer> list) {
+        List<Integer> newList = new ArrayList<>();
+        for(int i=list.size()-1; i>=0; i--) {
+            newList.add(list.get(i));
+        }
+        return newList;
+    }
+
     public static void main(String[] args) {
         Integer[] arr = {1,2,3,4,5};
         List<Integer> list = Arrays.asList(arr);
         System.out.println(list);
-        System.out.println(reverseList(list));
+        System.out.println(reverseList_v1(list));
+        System.out.println(reverseList_v2(list));
     }
 
 }
