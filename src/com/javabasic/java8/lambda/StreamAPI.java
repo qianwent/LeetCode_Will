@@ -1,8 +1,7 @@
 package com.javabasic.java8.lambda;
 
-import com.javabasic.java8.model.Robot;
+import com.javabasic.basic.model.Robot;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;

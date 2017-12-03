@@ -1,4 +1,4 @@
-package com.javabasic.java8.model;
+package com.javabasic.basic.model;
 
 /**
  * Created by Wentao Qian on 12/3/2017.
@@ -13,4 +13,12 @@ public class Robot {
     }
 
     private String ID;
+
+    public Robot() {
+
+    }
+
+    public Robot(String ID) {
+        this.ID = ID;
+    }
 }
