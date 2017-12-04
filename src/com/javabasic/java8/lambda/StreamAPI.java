@@ -70,6 +70,14 @@ public class StreamAPI {
         List<Robot> robotList = Arrays.asList(new Robot("a"), new Robot("b"), new Robot("c"));
         List<String> nameList = robotList.stream().map(robot -> robot.generateRobotName()).collect(Collectors.toList());
         System.out.println(nameList);
+        /*Set<Robot> robotSet = new HashSet<>();
+        robotSet.add(new Robot("a"));
+        robotSet.add(new Robot("b"));
+        robotSet.add(new Robot("b"));*/
+        //下面这种方法，比较有意思，至于那种好，需要实战 TODO
+        Set<Robot> robotSet = new HashSet<>(Arrays.asList(new Robot("a"), new Robot("b"), new Robot("c")));
+        Set<String> stringSet = robotSet.stream().map(robot -> robot.generateRobotName()).collect(Collectors.toSet());
+        System.out.println(stringSet);
     }
 
     public static void collectMethod2() {
