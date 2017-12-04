@@ -1,6 +1,7 @@
 package com.algorithm.test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
@@ -33,6 +34,14 @@ public class TestList {
 		Stream<List<String>> stream21 = Stream.of(list2);
 		Stream<Obj> stream22 = stream21.filter(s->Objects.nonNull(s)).map(l->new Obj(l.get(0),l.get(1)));
 		stream22.forEach(a->System.out.println(a.getA()));
+
+		//array to list
+		int[] arr1 = {1,2,3,4,5};
+		List<int[]> list1 = Arrays.asList(arr1);//int[] is actually an object, not a primitive.
+
+		//list to array
+		List<Integer> integerList = Arrays.asList(1,2,3,4,5);
+		Integer[] integers = integerList.toArray(new Integer[integerList.size()]);//这个写法虽然奇怪，但是请记住
 		
 	}
 
