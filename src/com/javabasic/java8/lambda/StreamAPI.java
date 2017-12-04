@@ -75,6 +75,7 @@ public class StreamAPI {
         robotSet.add(new Robot("b"));
         robotSet.add(new Robot("b"));*/
         //下面这种方法，比较有意思，至于那种好，需要实战 TODO
+        //https://stackoverflow.com/questions/2041778/how-to-initialize-hashset-values-by-construction
         Set<Robot> robotSet = new HashSet<>(Arrays.asList(new Robot("a"), new Robot("b"), new Robot("c")));
         Set<String> stringSet = robotSet.stream().map(robot -> robot.generateRobotName()).collect(Collectors.toSet());
         System.out.println(stringSet);
