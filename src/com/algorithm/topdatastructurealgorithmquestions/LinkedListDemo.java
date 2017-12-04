@@ -11,7 +11,7 @@ public class LinkedListDemo {
         linkedList.add( new LinkedList.Node("2"));
         linkedList.add( new LinkedList.Node("3"));
         linkedList.add( new LinkedList.Node("4"));
-        linkedList.add( new LinkedList.Node("5"));
+//        linkedList.add( new LinkedList.Node("5"));
 
         //finding middle element of LinkedList in single pass
         LinkedList.Node current = head;
@@ -22,6 +22,7 @@ public class LinkedListDemo {
         //middle指针每移动一次，current指针就会移动2次，这就是特性
         //那这不就变成小学数学题了，一串数字的中位数=(n+1)/2 if n是奇数，=n/2 if n是偶数
         //在这个算法中，我们custom的LinkedList是没有index的，只有定义了next方法，那只能动态地设置middle
+        //不过说实话，如果是偶数个的话，中位数就得人为定义了，个人人为这不算是一个好的数据结构题
         while(current.next() != null){
             length++;
             if(length%2 ==0){
