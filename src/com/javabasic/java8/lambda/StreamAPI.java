@@ -2,9 +2,8 @@ package com.javabasic.java8.lambda;
 
 import com.javabasic.basic.model.Robot;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -38,15 +37,59 @@ public class StreamAPI {
     private Stream<Robot> generateStream() {
         Stream<Robot> stringStream =
                 Stream.generate(()->{
-                    Robot robot = new Robot(){{setID("x");}};//TODO
+//                    Robot robot = new Robot(){{setID("x");}};//this is not a good practice
+                    Robot robot = new Robot("abc");
                     return robot;
                 }).limit(10);
         return stringStream;
     }
 
+    //intermediate operations, terminal operation
+    public void referencingStream() {
+        Stream<String> stream = Stream.of("a", "b", "c").filter(e->e.contains("c"));
+        Optional<String> element = stream.findAny();
+
+        List<String> list = Stream.of("a", "b", "c").filter(e->e.contains("c")).collect(Collectors.toList());
+        Optional<String> element1 = list.stream().findAny();
+    }
+
+    //stream.map
+    public static void streamMap() {
+        Stream<Robot> robotStream = Stream.of("a", "b", "c").map(e->new Robot(e));
+        robotStream.forEach(Robot::reportID);
+    }
+
+    //different ways to collect
+    public static void collectMethod1() {
+        //下面这种写法是错误的！
+//        List<Robot> robotList = new ArrayList<>(new Robot("a"), new Robot("b"), new Robot("c"));
+        //这是最普通的写法
+        List<Robot> robotList0 = new ArrayList<>();
+        robotList0.add(new Robot("a"));
+        //这个Arrays.asList的写法要记住，应该是比较通用的方法
+        List<Robot> robotList = Arrays.asList(new Robot("a"), new Robot("b"), new Robot("c"));
+        List<String> nameList = robotList.stream().map(robot -> robot.generateRobotName()).collect(Collectors.toList());
+        System.out.println(nameList);
+    }
+
+    public static void collectMethod2() {
+        List<Robot> robotList = Arrays.asList(new Robot("a", "001"),
+                new Robot("b", "001"), new Robot("c", "002"));
+        Map<String, List<Robot>> map = robotList.stream().collect(Collectors.groupingBy(Robot::getType));
+        System.out.println(map);
+        Map<Boolean, List<Robot>> map2 = robotList.stream()
+                .collect(Collectors.partitioningBy(r->r.getType().equals("001")));
+        System.out.println(map2);
+    }
+
     public static void main(String[] args) {
         StreamAPI streamAPI = new StreamAPI();
         streamAPI.generateStream();
+
+        streamMap();
+
+        collectMethod1();
+        collectMethod2();
     }
 
 }
