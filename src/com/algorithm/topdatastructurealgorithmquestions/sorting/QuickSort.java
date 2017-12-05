@@ -30,19 +30,20 @@ public class QuickSort {
     // 就不用进入_quickSort方法了。
     //TODO:所以说啊，学算法，得实战，光看理论以我的理解能力和思路是不可能看懂的！
     private static int _getMiddle(int[] arr, int left, int right) {
-        int _left = left;
-        int _right = right;
-        int temp = arr[_left];//这个就是基准，一般取最左边的
-        while(_left < _right) {
-            //TODO:一开始写成了arr[_right]>temp，也显然不对了，就比如main方法里的array，有两个49，指针应该继续移动
-            while(_left<_right && arr[_right]>=temp) {
-                _right--;
+//        int _left = left;//一开始这里把左右指针保存起来了，这个是借鉴cleanerversion里的，
+            // 但是这里我们把一个方法分解多个方法了，左右指针会传递到下一个方法里，所以这里就不用保存了
+//        int _right = right;
+        int temp = arr[left];//这个就是基准，一般取最左边的
+        while(left < right) {
+            //TODO:一开始写成了arr[right]>temp，也显然不对了，就比如main方法里的array，有两个49，指针应该继续移动
+            while(left<right && arr[right]>=temp) {
+                right--;
             }
-            arr[_left] = arr[_right];
-            while(_left<_right && arr[_left]<=temp) {
-                _left++;
+            arr[left] = arr[right];
+            while(left<right && arr[left]<=temp) {
+                left++;
             }
-            arr[_right] = arr[_left];
+            arr[right] = arr[left];
         }
         /*
         这里一开始写反了，想当然了，一定注意，我们一直在操作这个array
@@ -58,9 +59,9 @@ public class QuickSort {
         时间复杂度依旧是O(n^2)）
          */
 //        temp = arr[_right];
-        arr[_right] = temp;
+        arr[right] = temp;
 //        return temp;//一开始写成了这个，那显然不对了，left和right永远都是指针，即index，传这个位置的数就不对了
-        return _right;
+        return right;
     }
 
     public static void quickSort(int[] arr, int left, int right) {
