@@ -33,6 +33,9 @@ public class BubbleSort {
         System.out.println("unsorted array before sorting : " + Arrays.toString(unsorted));
 
         // Outer loop - need n-1 iteration to sort n elements
+        //注意这里为什么只用循环n-1次，如果出现这种疑惑，只要考虑极限情况，比如只有2个数
+        //那显然只用比较一次，然后归纳法你就能知道要循环n-1次
+        //这和一般的遍历一串数据，对每个数据modify，是不一样的
         for(int i=0; i<unsorted.length -1; i++){
 
             //Inner loop to perform comparision and swapping between adjacent numbers

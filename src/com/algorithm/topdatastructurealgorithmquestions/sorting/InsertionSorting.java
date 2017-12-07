@@ -19,6 +19,7 @@ public class InsertionSorting {
      */
     public static void insertionSorting(int[] arr) {
         int temp, i, j, n=arr.length;
+        //看这个外循环，和bubble sort一样，都是循环n-1次
         for(i=1; i<n; i++) {
             temp = arr[i];
             for(j=i-1; j>=0&&arr[j]>temp; j--) {

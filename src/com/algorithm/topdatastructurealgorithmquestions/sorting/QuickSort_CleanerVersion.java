@@ -22,13 +22,15 @@ public class QuickSort_CleanerVersion {
                 arr[right] = arr[left];  //找到这种元素arr[left]后，与arr[right]交换
 
             }
-            arr[right] = temp;    //基准元素归位
+            arr[right] = temp;    //基准元素归位 //TODO:目前分析看来，到这一步，right==left
+            //TODO：依然是极限情况，如果已经是排好序的，那右指针会一直递减直到==0，这个需要多记忆一下
+            //根据归纳法，可以得出结论，最终right==left
             quickSort(arr,_left,left-1);  //对基准元素左边的元素进行递归排序
             quickSort(arr, right+1,_right);  //对基准元素右边的进行递归排序
         }
     }
     public static void main(String[] args) {
-        int array[] = {10,5,3,1,7,2,8};
+        int array[] = {10,5,3,1,4,7,2,8};
         System.out.println("排序之前：");
         for(int element : array){
             System.out.print(element+" ");
@@ -39,6 +41,14 @@ public class QuickSort_CleanerVersion {
         System.out.println("\n排序之后：");
         for(int element : array){
             System.out.print(element+" ");
+        }
+
+        System.out.println();
+
+        int arr[] = {1,2,3};
+        quickSort(arr, 0, arr.length-1);
+        for(int i: arr) {
+            System.out.print(i + " ");
         }
 
     }
