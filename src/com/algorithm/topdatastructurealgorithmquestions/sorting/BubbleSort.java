@@ -23,8 +23,11 @@ public class BubbleSort {
      * than that.
      * 所谓冒泡排序，核心思想就是让当前loop的最大数像冒泡一样浮出水面，就放到最后一个
      * 第一个loop结束，也就是把毗邻的数都挨个比了个遍，那最后一个数一定是这里面最大的了
+     * 这一轮，所有相邻的数都比较了一遍，每次都是把大的数往后移动
      * 然后开始第二轮loop，再把当前的最大数排到最后
-     * 知道每一轮loop都比较完，所有最大数都依次冒了出来，也就达到了排序的目的
+     * 注意：外循环每循环一次，内循环需要比较的数就少一个，因为上一轮已经把最大数冒泡出来了
+     * 所以内循环必然是j<unsorted.length -i
+     * 直到每一轮loop都比较完，所有最大数都依次冒了出来，也就达到了排序的目的
      */
     public static void bubbleSort(int[] unsorted){
         System.out.println("unsorted array before sorting : " + Arrays.toString(unsorted));
