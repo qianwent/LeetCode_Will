@@ -19,7 +19,7 @@ public class BubbleSort {
 
     /*
      * In bubble sort we need n-1 iteration to sort n elements
-     * at end of first iteration larget number is sorted and subsequently numbers smaller
+     * at end of first iteration largest number is sorted and subsequently numbers smaller
      * than that.
      * 所谓冒泡排序，核心思想就是让当前loop的最大数像冒泡一样浮出水面，就放到最后一个
      * 第一个loop结束，也就是把毗邻的数都挨个比了个遍，那最后一个数一定是这里面最大的了

@@ -15,6 +15,7 @@ public class InsertionSorting {
     因为前面的数字还要和temp比，如果temp还是小，前面的数还得往后退，直到内循环条件不满足，
     这个时候，temp位置锁定，本来应该是j，但是最后j--，需要把j还原，所以变成了arr[j+1] = temp;
     TODO：插入排序原理上很好理解，但是写代码这是第一次，得记住
+    时间复杂度依旧是O(n^2)
      */
     public static void insertionSorting(int[] arr) {
         int temp, i, j, n=arr.length;
