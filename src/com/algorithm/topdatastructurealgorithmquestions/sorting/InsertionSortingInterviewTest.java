@@ -11,7 +11,9 @@ public class InsertionSortingInterviewTest<E extends Comparable> {
 
     public void addElement(E e) {
         // TODO: Insert e to sSorted and make sure sSorted is always sorted.
-        int i = 0;
+//        int i ;
+//        System.out.println(i);//Variable 'i' might not have been initialized
+        int i = 0;//normally, we should initialize local variable
         for(E integer : sSorted) {
             if(e.compareTo(integer)>0) {//TODO:至少这里我们不能直接比较泛型大小，需要用到compareTo
                 break;
