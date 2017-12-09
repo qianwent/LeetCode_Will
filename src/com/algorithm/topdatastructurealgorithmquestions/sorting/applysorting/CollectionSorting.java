@@ -28,5 +28,11 @@ public class CollectionSorting {
         Collections.sort(phoneList, cmp);
         System.out.println("Printing the reverse list");
         System.out.println(phoneList);
+
+        //这种表达式需要见的也不少
+        //this is called Method Reference
+        //https://netjs.blogspot.com/2015/06/method-reference-in-java-8.html
+        Collections.sort(phoneList, SmartPhone::compareTo);
+        System.out.println(phoneList);
     }
 }
