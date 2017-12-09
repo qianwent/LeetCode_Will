@@ -6,6 +6,7 @@ package com.javabasic.basic;
 public class BasicReflection {
     public static void main(String[] args) {
         try {
+            //this is the fundamental feature for spring IoC
             Class<?> c = Class.forName("some_class");
             Object oo = c.newInstance();
         } catch (ClassNotFoundException e) {
