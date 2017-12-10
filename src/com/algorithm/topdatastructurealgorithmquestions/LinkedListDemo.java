@@ -2,6 +2,8 @@ package com.algorithm.topdatastructurealgorithmquestions;
 
 /**
  * Created by Wentao Qian on 12/4/2017.
+ * refer to com.javabasic.basic.nestedclass.NestedClassDemo
+ * basic knowledge of nested static class
  */
 public class LinkedListDemo {
     public static void main(String[] args) {
@@ -47,7 +49,9 @@ class LinkedList{
     private Node tail;
 
     public LinkedList(){
+        //初始化的时候确保有个head
         this.head = new Node("head");
+        //并且仅有这个head，所以tail和head实际上是同一个节点
         tail = head;
     }
 
