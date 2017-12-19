@@ -8,6 +8,16 @@ package com.algorithm.topdatastructurealgorithmquestions;
  * binary search only works with sorted array list, theoretically
  * so if we only talk about binary search a sorted array list, then O(n) = logn;
  * however, if it's not sorted, then we should sort it first, O(n) = nlogn , (if we use a sorting algorithm with nlogn)
+ *
+ * 但是以上只是第一步的分析，实际上在应用二分查找，会先用binary search tree来对数据进行排序，当然这跟其他排序算法不太一样，
+ * 这是利用数据结构的特性
+ * 具体参考：https://stackoverflow.com/questions/21586085/difference-between-binary-search-and-binary-search-tree
+ * A binary search tree is a binary tree (i.e., a node, typically called the root) with the property that the left
+ * and right subtrees are also binary search trees, and that all the elements of all the nodes in the left subtree
+ * are less than the root's element,
+ * and all the elements of all the nodes in the right subtree are greater than the root's element.
+ * 这样就能很明显发现，Binary search is an algorithm for finding an element in binary search tree.
+ * 这也是运用在database里面index上的很重要的技术（这样看起来就比较合理了）
  */
 public class BinarySearch {
     // Returns index of x if it is present in arr[], else
