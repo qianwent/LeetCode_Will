@@ -20,8 +20,8 @@ public enum MedicineCode {
         return code;
     }
 
-    public static Optional<MedicineCode> findByCode(String code) {
-        Optional<MedicineCode> medicineCode = Stream.of(MedicineCode.values()).filter(c->c.code().equals(code)).findFirst();
+    public static MedicineCode findByCode(String code) {
+        MedicineCode medicineCode = Stream.of(MedicineCode.values()).filter(c->c.code().equals(code)).findFirst().orElse(null);
         return medicineCode;
     }
 
