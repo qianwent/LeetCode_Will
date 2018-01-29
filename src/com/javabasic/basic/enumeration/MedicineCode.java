@@ -1,6 +1,5 @@
 package com.javabasic.basic.enumeration;
 
-import java.util.Optional;
 import java.util.stream.Stream;
 
 /**
