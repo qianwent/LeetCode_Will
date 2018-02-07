@@ -20,7 +20,8 @@ public enum MedicineCode {
     }
 
     public static MedicineCode findByCode(String code) {
-        MedicineCode medicineCode = Stream.of(MedicineCode.values()).filter(c->c.code().equals(code)).findFirst().orElse(null);
+        MedicineCode medicineCode = Stream.of(MedicineCode.values())
+                .filter(c->c.code().equals(code)).findFirst().orElse(null);
         return medicineCode;
     }
 
