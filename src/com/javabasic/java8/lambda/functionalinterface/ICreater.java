@@ -10,4 +10,12 @@ public interface ICreater<T extends List<?>> {
 
     T create();
 
+    default void defaultMethod() {
+        System.out.println("The default method is called.");
+    }
+
+    default String defaultStringMethod() {
+        return "Functional Interface can have multiple default methods.";
+    }
+
 }
