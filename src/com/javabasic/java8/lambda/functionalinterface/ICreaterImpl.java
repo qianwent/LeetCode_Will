@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Wentao Qian on 2/8/2018.
  */
-public class LambdaDemo {
+public class ICreaterImpl {
 
     public static void main(String[] args) {
         String[] strings = { "acb", "abc", "cb", "bc" };
@@ -17,7 +17,7 @@ public class LambdaDemo {
         System.out.println(arrayList.getClass().getName());
         System.out.println(arrayList);
 
-        LambdaDemo lambdaDemo = new LambdaDemo();
+        ICreaterImpl lambdaDemo = new ICreaterImpl();
         List<String> list = lambdaDemo.asList(LinkedList::new, strings);
         System.out.println(list.getClass().getName());
         System.out.println(list);
