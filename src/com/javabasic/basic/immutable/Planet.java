@@ -5,6 +5,13 @@ import java.util.Date;
 /**
  * Created by Wentao Qian on 2/13/2018.
  *
+ * https://softwareengineering.stackexchange.com/questions/151733/if-immutable-objects-are-good-why-do-people-keep-creating-mutable-objects
+ * 先看下这里的回答，可以看出immutable object开销肯定是大的，但是能避免多线程带来的问题
+ * 但是一般web APP如果没有什么多线程的话，显然是没必要用immutable的，就像spring容器里都是单例一样
+ * 每个object一般没有什么私有属性(不是那些autowire出来的)，通常web容器里的多个线程看到同一个object的时候
+ * 都会把里面的方法进行copy，可以想象如果整个object都要一次次地copy，那开销得多大啊
+ * 目前看来，还没有碰到什么非要用immutable的场景，做的还是不够多啊。。。
+ *
  * https://my.oschina.net/jackieyeah/blog/205198?fromerr=yJ78hGIV
  *
  * Planet是一个不可变类，因为当它构造完成之后没有办法改变它的状态
