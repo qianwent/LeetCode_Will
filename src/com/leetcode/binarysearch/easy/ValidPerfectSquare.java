@@ -21,7 +21,7 @@ public class ValidPerfectSquare {
 
     public boolean isPerfectSquare(int num) {
         int left=1, right=num;
-        while(left<right) {
+        while(left<=right) {
             long mid = (left+right)/2;
             if(mid*mid==num) {
                 return true;
