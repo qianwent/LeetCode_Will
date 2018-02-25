@@ -1,16 +1,15 @@
-package com.javabasic.basic.util;
+package com.javaadvanced.util;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
 
 /**
  * Created by Wentao Qian on 11/17/2017.
  */
 @Aspect
 public class MethodTimingProfile {
-//    @Pointcut("@annotation(com.javabasic.basic.util.Timer) && execution(* *.*(..))")
+//    @Pointcut("@annotation(com.javaadvanced.util.Timer) && execution(* *.*(..))")
 //    public void myPointCut() {}
 //
 //    @Around("myPointCut()")

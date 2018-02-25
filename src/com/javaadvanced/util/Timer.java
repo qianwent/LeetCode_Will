@@ -1,4 +1,4 @@
-package com.javabasic.basic.util;
+package com.javaadvanced.util;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,7 +1,6 @@
 package com.javabasic.java8.lambda;
 
-import com.javabasic.basic.util.*;
-import com.javabasic.basic.util.Timer;
+import com.javaadvanced.util.Timer;
 
 import java.util.*;
 
