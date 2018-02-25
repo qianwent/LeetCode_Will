@@ -18,6 +18,14 @@ public class DynamicProxy implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
+        /*
+        TODO: 关于这个invoke方法的参数，见这个链接
+        https://www.zhihu.com/question/52551525
+        目前看来第一个参数没有什么用。。。那为什么这么设计呢？
+        更详细的深入探索：
+        http://rejoy.iteye.com/blog/1627405
+         */
+
         System.out.println("before invoke...");
 
         System.out.println("Method:" + method);
