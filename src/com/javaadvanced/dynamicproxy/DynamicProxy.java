@@ -24,6 +24,7 @@ public class DynamicProxy implements InvocationHandler {
         目前看来第一个参数没有什么用。。。那为什么这么设计呢？
         更详细的深入探索：
         http://rejoy.iteye.com/blog/1627405
+        //TODO: 同时可以对比一下tiny-spring里面的invoke方法的处理方式，这里的处理方式比较原始
          */
 
         System.out.println("before invoke...");
