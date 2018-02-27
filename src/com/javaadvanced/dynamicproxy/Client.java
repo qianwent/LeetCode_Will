@@ -22,6 +22,9 @@ public class Client {
         subject.rent();
 
         subject.hello("aaa");
+
+        ProxyGeneratorUtils.writeProxyClassToHardDisk("D:/$Proxy0.class");
+
     }
 
 }
