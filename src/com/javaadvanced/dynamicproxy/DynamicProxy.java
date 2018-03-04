@@ -35,7 +35,7 @@ public class DynamicProxy implements InvocationHandler {
         // 最终这就是在调用C写的方法，而这恰恰是反射的最根本的技术，光用debug就算debug到底也没用
         // private static native Object invoke0(Method var0, Object var1, Object[] var2);
 
-        //TODO: 下一步要研究aspectj
+        //TODO: 下一步要研究aspectj pointcut
         method.invoke(subject, args);
 
         System.out.println("after invoke");
