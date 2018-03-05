@@ -36,6 +36,7 @@ public class DynamicProxy implements InvocationHandler {
         // private static native Object invoke0(Method var0, Object var1, Object[] var2);
 
         //TODO: 下一步要研究aspectj pointcut
+        //https://stackoverflow.com/questions/15447397/spring-aop-whats-the-difference-between-joinpoint-and-pointcut
         method.invoke(subject, args);
 
         System.out.println("after invoke");
