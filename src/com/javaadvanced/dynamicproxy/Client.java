@@ -1,5 +1,7 @@
 package com.javaadvanced.dynamicproxy;
 
+import com.javaadvanced.dynamicproxy.impl.RealSubject;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 

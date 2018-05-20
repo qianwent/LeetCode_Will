@@ -1,5 +1,6 @@
 package com.javaadvanced.dynamicproxy;
 
+import com.javaadvanced.dynamicproxy.impl.RealSubject;
 import sun.misc.ProxyGenerator;
 
 import java.io.FileOutputStream;
