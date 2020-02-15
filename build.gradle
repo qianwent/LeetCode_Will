@@ -2,13 +2,13 @@ apply plugin: 'java'
 apply plugin: 'idea'
 version = '1.0-SNAPSHOT'
 
-configurations {
-    ajc
-    aspects
-    compile {
-        extendsFrom aspects
-    }
-}
+//configurations {
+//    ajc
+//    aspects
+//    compile {
+//        extendsFrom aspects
+//    }
+//}
 
 repositories {
     mavenCentral()
@@ -16,6 +16,7 @@ repositories {
 
 dependencies {
     compile group: 'commons-collections', name: 'commons-collections', version: '3.2.2'
+    compile group: 'com.google.guava', name: 'guava', version: '19.0'
     testCompile group: 'junit', name: 'junit', version: '4.+'
     compile("log4j:log4j:1.2.16")
     compile("org.slf4j:slf4j-api:1.7.21")
