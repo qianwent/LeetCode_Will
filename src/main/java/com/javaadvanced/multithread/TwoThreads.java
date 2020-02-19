@@ -46,6 +46,7 @@ public class TwoThreads {
                             LOCK.notifyAll();
                             System.out.println("--- " + Thread.activeCount());
                             break;//stop the loop here, otherwise enter into else logic, and block the thread...
+                            //in general, after run method completed, the thread is done.
                         }
                         if (i % 2 == 1) {
                             System.out.println(i);
