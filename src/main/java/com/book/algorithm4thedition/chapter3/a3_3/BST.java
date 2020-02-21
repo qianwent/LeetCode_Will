@@ -1,5 +1,8 @@
 package com.book.algorithm4thedition.chapter3.a3_3;
 
+import java.util.PriorityQueue;
+import java.util.Queue;
+
 public class BST<Key extends Comparable<Key>, Value> {
 
     private Node root;
@@ -77,6 +80,17 @@ public class BST<Key extends Comparable<Key>, Value> {
             return x;
         }
         return min(x.left);
+    }
+
+    public Key max() {
+        return max(root).key;
+    }
+
+    private Node max(Node x) {
+        if (x.right == null) {
+            return x;
+        }
+        return max(x.right);
     }
 
     public Key floor(Key key) {
@@ -193,5 +207,32 @@ public class BST<Key extends Comparable<Key>, Value> {
         }
         x.N = size(x.left) + size(x.right) + 1;
         return x;
+    }
+
+    public Iterable<Key> keys() {
+        return keys(min(), max());
+    }
+
+    private Iterable<Key> keys(Key lo, Key hi) {
+        Queue<Key> queue = new PriorityQueue<Key>();
+        keys(root, queue, lo, hi);
+        return queue;
+    }
+
+    private void keys(Node x, Queue<Key> queue, Key lo, Key hi) {
+        if (x == null) {
+            return;
+        }
+        int cmpLo = lo.compareTo(x.key);
+        int cmpHi = hi.compareTo(x.key);
+        if (cmpLo < 0) {
+            keys(x.left, queue, lo, hi);
+        }
+        if (cmpLo <= 0 && cmpHi >= 0) {
+            queue.add(x.key);
+        }
+        if (cmpHi > 0) {
+            keys(x.right, queue, lo, hi);//TODO
+        }
     }
 }
