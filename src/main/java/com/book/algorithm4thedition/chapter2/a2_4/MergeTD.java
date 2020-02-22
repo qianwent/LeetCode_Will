@@ -17,7 +17,8 @@ public class MergeTD {
         int mid = (lo + hi) / 2;
         sort(a, lo, mid); // sort left half
         sort(a, mid + 1, hi); // sort right half
-        merge_v2(a, lo, mid, hi); // merge results
+        merge(a, lo, mid, hi); // merge results
+//        merge_v2(a, lo, mid, hi);
     }
 
     private static void merge(Comparable[] a, int lo, int mid, int hi) {

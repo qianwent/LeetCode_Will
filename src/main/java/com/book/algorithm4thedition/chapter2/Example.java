@@ -4,6 +4,7 @@ import com.book.algorithm4thedition.chapter2.a2_1.Bubble;
 import com.book.algorithm4thedition.chapter2.a2_1.Insertion;
 import com.book.algorithm4thedition.chapter2.a2_1.Selection;
 import com.book.algorithm4thedition.chapter2.a2_1.Shell;
+import com.book.algorithm4thedition.chapter2.a2_4.MergeBU;
 import com.book.algorithm4thedition.chapter2.a2_4.MergeTD;
 
 public class Example {
@@ -14,7 +15,8 @@ public class Example {
 //        Selection.sort(a);
 //        Insertion.sort(a);
 //        Shell.sort(a);
-        MergeTD.sort(a);
+//        MergeTD.sort(a);
+        MergeBU.sort(a);
     }
 
     public static boolean less(Comparable v, Comparable w) {
