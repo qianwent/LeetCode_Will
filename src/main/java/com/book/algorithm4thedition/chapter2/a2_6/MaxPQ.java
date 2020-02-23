@@ -90,6 +90,22 @@ public class MaxPQ<Key extends Comparable<Key>> {
         pq[j] = t;
     }
 
+    private void sort(int N) {
+        while (N > 1) {
+            /**
+             * the logic of sorting a heap-ordered binary tree:
+             * to move the largest key to the end, and in next step sink, only sink with totally N-- keys
+             * note:
+             * 堆排序是目前所知唯一的能同时最优地利用空间和时间的方法
+             * 在空间十分紧张的时候，如嵌入式或者低成本移动设备中使用较多
+             * 现代系统中应用较少，因为这个方法不利用缓存
+             * 其他的那些排序算法，大多都有相邻元素的比较，也就会充分利用空间
+             */
+            exch(1, N--);
+            sink_v2(1, N);
+        }
+    }
+
     public static void main(String[] args) {
         /**
          * 运行完之后就发现，构造出来的二叉堆的里面元素的排列是和插入的顺序有关系的，而且和书上的不一样，但依然是一个有序的二叉堆
@@ -121,6 +137,12 @@ public class MaxPQ<Key extends Comparable<Key>> {
         while (lt >= 1) {
             maxPQ2.sink_v2(lt--, N);
         }
+        for (int i = 1; i < N + 1; i++) {
+            System.out.print(maxPQ2.pq[i] + " ");
+        }
+        System.out.println();
+        System.out.println("now sort based on the heap-ordered status");
+        maxPQ2.sort(N);
         for (int i = 1; i < N + 1; i++) {
             System.out.print(maxPQ2.pq[i] + " ");
         }
