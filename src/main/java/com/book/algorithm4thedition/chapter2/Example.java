@@ -51,14 +51,9 @@ public class Example {
     }
 
     public static void main(String[] args) {
-//        String[] strings = new In().read();
-//        sort(strings);
-//        System.out.println(isSorted(strings));
-//        show(strings);
-        Map<String, String> map = new HashMap<>();
-        map.put("a", "abc");
-        map.put("b", "bcd");
-        map.put("c", "cde");
-        map.get("c");
+        String[] strings = new In().read();
+        sort(strings);
+        System.out.println(isSorted(strings));
+        show(strings);
     }
 }
