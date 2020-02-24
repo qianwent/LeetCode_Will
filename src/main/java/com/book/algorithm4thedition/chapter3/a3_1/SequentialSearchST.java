@@ -2,6 +2,7 @@ package com.book.algorithm4thedition.chapter3.a3_1;
 
 /**
  * sequential search, unordered linked list
+ * O(N), so not efficient in searching
  */
 public class SequentialSearchST<Key, Value> {
 

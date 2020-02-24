@@ -3,6 +3,11 @@ package com.book.algorithm4thedition.chapter3.a3_3;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
+/**
+ * Note: don't get confused with binary search tree and heap-ordered binary tree£¬they are for different purposes, hence definitions are bit different
+ * heap-ordered binary tree is for sorting topic, hence one implementation for priority queue
+ * binary search tree is for searching topic
+ */
 public class BST<Key extends Comparable<Key>, Value> {
 
     private Node root;

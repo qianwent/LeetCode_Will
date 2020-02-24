@@ -9,6 +9,9 @@ import com.book.algorithm4thedition.chapter2.a2_4.MergeTD;
 import com.book.algorithm4thedition.chapter2.a2_5.Quick;
 import com.book.algorithm4thedition.chapter2.a2_5.Quick3Way;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Example {
 
     public static void sort(Comparable[] a) {
@@ -48,9 +51,14 @@ public class Example {
     }
 
     public static void main(String[] args) {
-        String[] strings = new In().read();
-        sort(strings);
-        System.out.println(isSorted(strings));
-        show(strings);
+//        String[] strings = new In().read();
+//        sort(strings);
+//        System.out.println(isSorted(strings));
+//        show(strings);
+        Map<String, String> map = new HashMap<>();
+        map.put("a", "abc");
+        map.put("b", "bcd");
+        map.put("c", "cde");
+        map.get("c");
     }
 }
