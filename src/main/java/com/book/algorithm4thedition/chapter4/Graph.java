@@ -37,6 +37,14 @@ public class Graph {
         }
     }
 
+    public int V() {
+        return V;
+    }
+
+    public int E() {
+        return E;
+    }
+
     /**
      * 从这个方法来理解这个抽象的graph，参考P524
      * 初始化这个graph之后，vertex个数先固定，然后v是从0-12，对应于adj数组的每一个index，这里显然是简化了，以方便理解
