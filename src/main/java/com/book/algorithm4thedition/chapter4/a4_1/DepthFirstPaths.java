@@ -19,7 +19,7 @@ public class DepthFirstPaths {
 
     /**
      * 目前这个dfs算法不能把edgeTo[5]标成0，因为当进入G.adj(5)的时候，0这个点已经被marked了
-     * TODO：所以不急，这个算法还是很初级的，只是为了展示DFS，这里也并没有说需要找到最短还是最长路径
+     * 所以不急，这个算法还是很初级的，只是为了展示DFS，这里也并没有说需要找到最短还是最长路径
      * 路径还是跟构造时候的顺序相关的
      */
     private void dfs(Graph G, int v) {
