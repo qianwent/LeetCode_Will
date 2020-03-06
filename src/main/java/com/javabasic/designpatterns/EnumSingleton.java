@@ -23,7 +23,7 @@ public enum EnumSingleton {
         singleton.setValue(1);
         System.out.println(singleton.getValue());
         EnumSingleton singleton1 = EnumSingleton.INSTANCE;
-        System.out.println(singleton1.getValue());
+        System.out.println(singleton == singleton1);
     }
 
 }

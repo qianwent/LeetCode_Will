@@ -16,7 +16,10 @@ public class ReentrantLockInterrupt {
         ReentrantLockInterrupt reentrantLockInterrupt = new ReentrantLockInterrupt();
         reentrantLockInterrupt.thread1.start();
         reentrantLockInterrupt.thread2.start();
-//        reentrantLockInterrupt.thread1.interrupt();
+        /**
+         * 因为用的lock1.lockInterruptibly()，所以线程可以interrupt
+         */
+        reentrantLockInterrupt.thread1.interrupt();
     }
 
     class Task implements Runnable {
