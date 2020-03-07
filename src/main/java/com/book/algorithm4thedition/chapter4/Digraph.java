@@ -46,7 +46,8 @@ public class Digraph {
     }
 
     /**
-     *
+     * 注意adj数组的最大index要确保能容下最大结点的值
+     * 比如只有0 3 4 5这几个点构成的图，V至少得是6
      */
     private void addEdge(int v, int w) {
         adj[v].add(w);
