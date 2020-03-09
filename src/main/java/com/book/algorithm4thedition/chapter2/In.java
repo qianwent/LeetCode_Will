@@ -58,6 +58,21 @@ public class In {
         }
     }
 
+    public double readDouble() {
+        try {
+            return scanner.nextDouble();
+        }
+        catch (InputMismatchException e) {
+            String token = scanner.next();
+            throw new InputMismatchException("attempts to read a 'double' value from the input stream, "
+                    + "but the next token is \"" + token + "\"");
+        }
+        catch (NoSuchElementException e) {
+            throw new NoSuchElementException("attemps to read a 'double' value from the input stream, "
+                    + "but no more tokens are available");
+        }
+    }
+
     public static void main(String[] args) {
         new In().read();
     }
