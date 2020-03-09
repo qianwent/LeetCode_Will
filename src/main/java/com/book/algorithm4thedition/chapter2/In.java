@@ -43,6 +43,15 @@ public class In {
         return vals;
     }
 
+    public double[] readAllDoubles() {
+        String[] fields = readAllStrings();
+        double[] vals = new double[fields.length];
+        for (int i = 0; i < fields.length; i++) {
+            vals[i] = Double.parseDouble(fields[i]);
+        }
+        return vals;
+    }
+
     public int readInt() {
         try {
             return scanner.nextInt();
