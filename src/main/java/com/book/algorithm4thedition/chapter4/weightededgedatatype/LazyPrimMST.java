@@ -15,8 +15,8 @@ public class LazyPrimMST {
      * Compute a minimum spanning tree (or forest) of an edge-weighted graph.
      */
     public LazyPrimMST(EdgeWeightedGraph G) {
-        mst = new Queue<Edge>();
-        pq = new MinPQ<Edge>();
+        mst = new Queue<>();
+        pq = new MinPQ<>();
         marked = new boolean[G.V()];
         for (int v = 0; v < G.V(); v++)     // run Prim from all vertices to
             if (!marked[v]) prim(G, v);     // get a minimum spanning forest
@@ -59,6 +59,9 @@ public class LazyPrimMST {
         return weight;
     }
 
+    /**
+     * 8 16 4 5 .35 4 7 .37 5 7 .28 0 7 .16 1 5 .32 0 4 .38 2 3 .17 1 7 .19 0 2 .26 1 2 .36 1 3 .29 2 7 .34 6 2 .40 3 6 .52 6 0 .58 6 4 .93
+     */
     public static void main(String[] args) {
         EdgeWeightedGraph ewg = new EdgeWeightedGraph(new In().readAllDoubles());
         LazyPrimMST lazyPrimMST = new LazyPrimMST(ewg);
