@@ -23,6 +23,9 @@ public class Gold_Worker {
             }
         }
 
+        /**
+         * TODO：状态转移公式还是要需要有完备的数学思考过程的
+         */
         for (int i = 1; i < n; i++) {
             for (int j = 1; j <= w; j++) {
                 if (j < p[i]) {
