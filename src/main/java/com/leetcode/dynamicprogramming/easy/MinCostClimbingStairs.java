@@ -36,6 +36,10 @@ public class MinCostClimbingStairs {
 
         int prev1 = cost[0], prev2 = cost[1], current = 0;
         for (int i = 2; i < cost.length; i++) {
+            /**
+             * TODO: 这里的3个变量的命名可以再推敲一下，总感觉这个得要有自己统一的命名方式
+             * TODO：目前这种命名，以到达top为例，最小cost就是从top的前两个位置选取最小值
+             */
             current = cost[i] + Math.min(prev1, prev2);
             prev1 = prev2;
             prev2 = current;
