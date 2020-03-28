@@ -48,7 +48,31 @@ public class MinCostClimbingStairs {
         return Math.min(prev1, prev2);
     }
 
+    public static int minCostClimbingStairs_v2(int[] cost) {
+        int N = cost.length;
+        if (N == 2) {
+            return Math.min(cost[0], cost[1]);
+        }
+
+        int[] total = new int[N];
+        /**
+         * 一开始边界条件又忘了，一旦初始边界条件没有设定好，后面的结果显然就是错误的
+         * DP确实是非常考验细节啊
+         */
+        total[0] = cost[0];
+        total[1] = cost[1];
+        for (int i = 2; i < N; i++) {
+            /**
+             * 对比上面的算法，核心没有变，多用了一个int array，少了两个变量int
+             */
+            total[i] = cost[i] + Math.min(total[i-1], total[i-2]);
+        }
+
+        return Math.min(total[N-1], total[N-2]);
+    }
+
     public static void main(String[] args) {
         System.out.println(minCostClimbingStairs(new int[]{1, 100, 1, 1, 1, 100, 1, 1, 100, 1}));
+        System.out.println(minCostClimbingStairs_v2(new int[]{1, 100, 1, 1, 1, 100, 1, 1, 100, 1}));
     }
 }
