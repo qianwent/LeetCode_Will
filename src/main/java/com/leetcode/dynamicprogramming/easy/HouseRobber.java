@@ -24,6 +24,7 @@ public class HouseRobber {
         /**
          * easy模式下的DP都是比较容易看出状态转移公式
          * f(n)=Math.max(f(n-1), f(n-2)+nums[n])
+         * Recurrence relation (functional equation)
          */
         int N = nums.length;
         if (N == 0) {
