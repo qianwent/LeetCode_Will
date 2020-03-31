@@ -74,5 +74,27 @@ public class MinCostClimbingStairs {
     public static void main(String[] args) {
         System.out.println(minCostClimbingStairs(new int[]{1, 100, 1, 1, 1, 100, 1, 1, 100, 1}));
         System.out.println(minCostClimbingStairs_v2(new int[]{1, 100, 1, 1, 1, 100, 1, 1, 100, 1}));
+        System.out.println(minCostClimbingStairs_v3(new int[]{0, 0, 1, 1}));
+    }
+
+    public static int minCostClimbingStairs_v3(int[] cost) {
+        /*
+        f(n)=min(f(n-1), f(n-2))
+        */
+        int N = cost.length;
+        int total[] = new int[N];
+        // if(N==2) return Math.min(cost[0], cost[1]);
+        total[0] = cost[0];
+        total[1] = cost[1];
+        for(int i=2; i<N; i++) {
+            /**
+             * 这是再做一遍盲打的
+             * 一开始写的total[i] = Math.min(total[i - 1], total[i - 2] + cost[i])
+             * 这里面有个错误点，即走到step i，应该要把i的cost算上去
+             * 那么从i-1走过来，和从i-2走过来应该都是要付cost[i]的，这种错误还是思维不缜密
+             */
+            total[i] = Math.min(total[i - 1], total[i - 2]) + cost[i];
+        }
+        return Math.min(total[N-1], total[N-2]);
     }
 }
