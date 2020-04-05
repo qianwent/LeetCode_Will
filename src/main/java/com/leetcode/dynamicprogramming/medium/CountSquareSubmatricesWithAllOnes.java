@@ -40,7 +40,7 @@ package com.leetcode.dynamicprogramming.medium;
  */
 public class CountSquareSubmatricesWithAllOnes {
 
-    // TODO
+    // TODO matrix相关的到底是什么规律，是否都是和图像处理相关？
     public int countSquares(int[][] matrix) {
         int[][] dp = new int[matrix.length + 1][matrix[0].length + 1];
         for(int i =0 ; i < dp.length ;i++){
