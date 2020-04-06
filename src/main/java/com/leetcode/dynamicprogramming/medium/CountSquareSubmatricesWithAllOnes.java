@@ -41,7 +41,7 @@ package com.leetcode.dynamicprogramming.medium;
 public class CountSquareSubmatricesWithAllOnes {
 
     // TODO matrix相关的到底是什么规律，是否都是和图像处理相关？
-    public int countSquares(int[][] matrix) {
+    public static int countSquares(int[][] matrix) {
         int[][] dp = new int[matrix.length + 1][matrix[0].length + 1];
         for(int i =0 ; i < dp.length ;i++){
 //            for(int j =0 ; j < 1 ; j++){
@@ -74,8 +74,12 @@ public class CountSquareSubmatricesWithAllOnes {
         return count;
     }
 
-    private int findMin(int a , int b , int c){
+    private static int findMin(int a , int b , int c){
         int min = Math.min(a, b);
         return Math.min(min, c);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(countSquares(new int[][]{{1, 0, 1}, {1, 1, 0}, {1, 1, 0}}));
     }
 }
