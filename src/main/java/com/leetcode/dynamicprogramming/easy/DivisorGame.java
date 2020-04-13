@@ -35,4 +35,29 @@ public class DivisorGame {
         }
         return false;
     }
+
+    /**
+     * 看到一个状态转移方程：dp[x] = !dp[N-x] TODO 对于这种类型理解还不深刻
+     */
+    public static boolean divisorGame_v2(int N) {
+        if (N == 1) {
+            return false;
+        }
+        if (N == 2) {
+            return true;
+        }
+        boolean[] dp = new boolean[N + 1];
+        for (int i = 3; i <= N; i++) {
+            for (int j = 1; j < i; j++) {
+                if (i % j == 0) {
+                    dp[i] = !dp[i - j] || dp[i];
+                }
+            }
+        }
+        return dp[N];
+    }
+
+    public static void main(String[] args) {
+        System.out.println(divisorGame_v2(10));
+    }
 }
