@@ -48,7 +48,32 @@ public class DivisorGame {
         }
         boolean[] dp = new boolean[N + 1];
         for (int i = 3; i <= N; i++) {
-            for (int j = 1; j < i; j++) {
+            /**
+             * 条件用j < i / 2属于巧合，实际执行逻辑并不太对
+             */
+            for (int j = 1; j < i / 2; j++) {
+                if (i % j == 0) {
+                    dp[i] = !dp[i - j] || dp[i];
+                }
+            }
+        }
+        return dp[N];
+    }
+
+    public static boolean divisorGame_v2_1(int N) {
+        if (N == 1) {
+            return false;
+        }
+        boolean[] dp = new boolean[N + 1];
+//        if (N == 2) {
+//            return dp[N] = true;
+//        }
+        dp[2] = true;
+        for (int i = 3; i <= N; i++) {
+            /**
+             * 条件用j <= i / 2属于巧合，符合逻辑，但是不要忘了设置边界条件dp[2]，而注释掉的部分显然是不满足条件的
+             */
+            for (int j = 1; j <= i / 2; j++) {
                 if (i % j == 0) {
                     dp[i] = !dp[i - j] || dp[i];
                 }
@@ -58,6 +83,7 @@ public class DivisorGame {
     }
 
     public static void main(String[] args) {
-        System.out.println(divisorGame_v2(10));
+        System.out.println(divisorGame_v2(3));
+        System.out.println(divisorGame_v2_1(3));
     }
 }
