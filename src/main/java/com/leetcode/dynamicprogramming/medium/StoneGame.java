@@ -52,6 +52,8 @@ public class StoneGame {
          * 继而A在拿piles[i]时，最多能比B多拿的就是dp[i][j]=piles[i]-dp[i+1][j]
          * 此时一部分状态转移方程就出来了，另一部分就是当A拿了piles[j]，相应的dp[i][j]=piles[j]-dp[i][j-1]
          * 两者取最大值，即为最终dp[i][j]
+         * 一开始对二维数组在这里的作用理解有偏差，不要认为二维数组的所有元素都要用到
+         * 在本题中只是起到标注范围的作用
          */
         for (int dis = 1; dis < n; dis++) {
             for (int i = 0; i < n - dis; i++) {
