@@ -47,7 +47,7 @@ public class StoneGame {
         /**
          * 这里两层for循环，就是从最小子结构开始，即2个小堆的dp最优解，算到n个小堆
          * 如何分析：首先很明确的是先手一定从两端选，选完之后就是n-1个piles
-         * dp[i,j]定义为piles[i]...piles[j]先手最多能多拿几个stone，这个定义非常重要
+         * dp[i][j]定义为piles[i]...piles[j]先手最多能多拿几个stone，这个定义非常重要
          * 然后开始状态转移方程，如果选手A拿了piles[i]，则选手B最多能多拿dp[i+1][j]
          * 继而A在拿piles[i]时，最多能比B多拿的就是dp[i][j]=piles[i]-dp[i+1][j]
          * 此时一部分状态转移方程就出来了，另一部分就是当A拿了piles[j]，相应的dp[i][j]=piles[j]-dp[i][j-1]
