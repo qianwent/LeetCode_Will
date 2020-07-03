@@ -24,6 +24,7 @@ public class StoneGameII {
     public static int stoneGameII(int[] piles) {
         /**
          * 关键是dp的定义，和状态转移方程的确定，这个非常重要
+         * TODO: 本题的解法还有待完善，效率比较低下
          */
         int n = piles.length;
         int[] sum = new int[n+1];
