@@ -51,6 +51,14 @@ public class CountSquareSubmatricesWithAllOnes {
      * 以下这个算法，用的是dp[i][j] = min + matrix[i - 1][j - 1]
      * min就是看周围那3个元素最小是几，如果全是1，说明可以形成闭环，只要有一个0，那就不能闭环
      * 类推到全是2，也是这个意思，dp[i][j]=3，这就是DP开始状态叠加了，并把叠加后的数保存起来
+     * 以题中的matrix为例，dp经过计算过后的状态就是：
+     * dp =
+     * [
+     * [0,0,0,0],
+     * [0,1,0,1],
+     * [0,1,1,0],
+     * [0,1,2,0]
+     * ]
      */
     public static int countSquares(int[][] matrix) {
         int[][] dp = new int[matrix.length + 1][matrix[0].length + 1];
