@@ -46,7 +46,34 @@ public class ArithmeticSlices {
         return count;
     }
 
+    /**
+     * 用高斯公式的解法，看起来反而还麻烦一些，因为涉及的条件判断比DP算法要更多一些
+     * 但是这个算法的思路看起来更清醒
+     * 即先一旦出现符合条件的子等差数列，就把这个数列的长度记录下来，以备后续代入高斯公式进行计算
+     * 一旦这个子等差数列断了，那么首先要把已有的等差数列个数算出来，然后重置子等差数列长度为2
+     * 根据条件，等差数列长度必须至少为3，加上这个算法里len是累加的，所以这个len=2刚好能满足要求
+     */
+    public static int numberOfArithmeticSlices_Gauss_Formula(int[] A) {
+        int len = 2, count = 0;
+        for (int i = 2; i < A.length; i++) {
+            if (A[i] - A[i - 1] == A[i - 1] - A[i - 2]) {
+                len++;
+            } else {
+                if (len > 2) {
+                    count += (len - 1) * (len - 2) / 2;
+                }
+                len = 2;// this step is to reset the temp len value, which is necessary
+            }
+        }
+        if (len > 2) {
+            count += (len - 1) * (len - 2) / 2;
+        }
+        return count;
+    }
+
     public static void main(String[] args) {
         System.out.println(numberOfArithmeticSlices(new int[]{1, 2, 3, 4, 7, 8, 9, 10}));
+        System.out.println(numberOfArithmeticSlices_Gauss_Formula(new int[]{1, 2, 3, 4, 7, 8, 9, 10}));
+        System.out.println(numberOfArithmeticSlices_Gauss_Formula(new int[]{1, 2, 3, 4}));
     }
 }
