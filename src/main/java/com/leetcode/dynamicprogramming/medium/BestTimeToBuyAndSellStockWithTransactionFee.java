@@ -51,8 +51,21 @@ public class BestTimeToBuyAndSellStockWithTransactionFee {
         return dp[prices.length - 1];
     }
 
+    public static int maxProfit(int[] prices, int fee) {
+        int hold[] = new int[prices.length];
+//        hold[0] = Integer.MIN_VALUE;// 这个明显不合理
+        hold[0] = -prices[0];
+        int sold[] = new int[prices.length];
+        for (int i = 1; i < prices.length; i++) {
+            hold[i] = Math.max(hold[i - 1], sold[i - 1] - prices[i]);
+            sold[i] = Math.max(sold[i - 1], hold[i - 1] + prices[i] - fee);
+        }
+        return sold[prices.length - 1];
+    }
+
     public static void main(String[] args) {
         System.out.println(maxProfit_dp(new int[]{1, 3, 2, 8, 4, 9}, 2));
         System.out.println(maxProfit_dp(new int[]{1, 3, 7, 5, 10, 3}, 3));
+        System.out.println(maxProfit(new int[]{1, 3, 2, 8, 4, 9}, 2));
     }
 }
